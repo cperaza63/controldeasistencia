@@ -21,8 +21,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
-    <!-- Jquery de AdminLET -->
+    <!-- Jquery de AdminLTE -->
     <script src="{{ asset('/plugins/jquery/jquery.js') }}"></script>
+    <!-- SWEET ALERT 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -215,8 +217,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
-          <li class="nav-item">
 
+          <li class="nav-item ">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas"><i class="bi bi-file-person-fill"></i></i>
+              <p>
+                Ministerios
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('ministerios/create') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Nuevo Ministerio</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('ministerios') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de Ministerios</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
             <a style="background-color:rgb(88, 7, 7)" class="nav-link" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
@@ -295,11 +321,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
     $(function () {
       $("#example1").DataTable({
         "pageLength" :10,
-        "responsive": true, "lengthChange": true, "autoWidth": true,
+        "language": {
+            "emptyTable": "No hay informacion",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ Miembros",
+            "infoEmpty": "Mostrando 0 a 0 de 0 Miembros",
+            "infoFiltered": "(Filtrado de _MAX_ total Miembros)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ Miembros",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscador",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        },
+        "paging": true,
+        "responsive": true,
+        "lengthChange": true,
+        "autoWidth": false,
+        "searching": true,
+        "ordering": true,
+        "info": true,
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
       }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
-      $('#example2').DataTable({
+      /*$('#example2').DataTable({
         "pageLenght" :5,
         "paging": true,
         "lengthChange": false,
@@ -308,6 +359,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         "info": true,
         "autoWidth": false,
         "responsive": true,
-      });
+      });*/
     });
   </script>

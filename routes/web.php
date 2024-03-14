@@ -12,5 +12,11 @@ Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(
 
 //Route::get('/miembros', function(){ return view('miembros.index'); })->middleware('auth');
 // llamada al controlador quien controlara todo....
-Route::get('/miembros', [MiembroController::class, 'index'])->name('home')->middleware('auth');
-Route::get('/miembros/create', function(){ return view('miembros.create'); })->middleware('auth');
+
+// con esta linea de codigo creamos todas las rutas de un control - crud
+
+Route::resource('/miembros', MiembroController::class);
+
+//Route::get('/miembros', [MiembroController::class, 'index'])->name('home')->middleware('auth');
+//Route::get('/miembros/create', [MiembroController::class, 'create'])->middleware('auth');
+//Route::get('/miembros/create', function(){ return view('miembros.create'); })->middleware('auth');

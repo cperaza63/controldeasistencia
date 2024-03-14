@@ -17,17 +17,18 @@ class MiembroFactory extends Factory
      */
     public function definition(): array
     {
+        // Str::random(10), random_int(70000000, 79999999), Str::random(10).'@gmail.com'
         return [
-        'nombre_apellido' => Str::random(10),
-        'direccion' => Str::random(10),
+        'nombre_apellido' => fake()->name,
+        'direccion' => fake()->address,
         'telefono' => random_int(70000000, 79999999),
-        'fecha_nacimiento' => '1963-05-25',
+        'fecha_nacimiento' => fake()->date($format = 'Y-m-d', $max = 'now'),
         'genero' => '1963-05-25',
-        'email' => Str::random(10).'@gmail.com',
+        'email' => fake()->unique()->safeEmail(),
         'estado' => '1',
         'ministerio' => 'PASTORAL',
-        'fotografia' => 'cperaza.jpg',
-        'fecha_ingreso' => '2023-05-25',
+        'fotografia' => 'nophoto.jpg',
+        'fecha_ingreso' => fake()->date($format = 'Y-m-d'),
         ];
     }
 }

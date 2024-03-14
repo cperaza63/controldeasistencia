@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Creación de Miembros</h1>
+                    <h1 class="m-0">Edición de Miembros</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -25,18 +25,21 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <div class="card card-outline card-primary">
+                <div class="card card-outline card-success">
                     <h5 class="ml-2">Llene los datos</h5>
                     <div class="card-body">
-                        <form action="{{ url('/miembros') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('/miembros', $miembro->id) }}" method="post" enctype="multipart/form-data">
+
                             @csrf
+                            {{ @method_field("PATCH") }}
+
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="">Nombre y Apellidos</label><b>*</b>
-                                                <input name="nombre_apellido" value="{{old('nombre_apellido')}}" type="text" class="form-control" >
+                                                <input name="nombre_apellido" value="{{$miembro->nombre_apellido}}" type="text" class="form-control" >
                                                 <!--@ error('nombre_apellido')
                                                     <small style="color:red;">* Error, campo requerido *</small>
                                                 @ enderror-->
@@ -45,21 +48,26 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="">Telefono</label>
-                                                <input name="telefono" value="{{old('telefono')}}" type="number" class="form-control" required>
+                                                <input name="telefono" value="{{$miembro->telefono}}" type="number" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="">E-mail</label><b>*</b>
-                                                <input name="email" value="{{old('email')}}" type="email" class="form-control" required>
+                                                <input name="email" value="{{$miembro->email}}" type="email" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="">Género</label><b>*</b>
                                                 <select class="form-control" name="genero" id="genero">
+                                                    @if ($miembro->genero == "MASCULINO")
                                                     <option value="MASCULINO">MASCULINO</option>
                                                     <option value="FEMENINO">FEMENINO</option>
+                                                    @else
+                                                    <option value="FEMENINO">FEMENINO</option>
+                                                    <option value="MASCULINO">MASCULINO</option>
+                                                    @endif
                                                 </select>
                                             </div>
                                         </div>
@@ -68,29 +76,42 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="">Fecha Nacmiento</label><b>*</b>
-                                                <input name="fecha_nacimiento" value="{{old('fecha_nacimiento')}}" type="date" class="form-control" required>
+                                                <input name="fecha_nacimiento" value="{{$miembro->fecha_nacimiento}}" type="date" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="">Ministerio</label><b>*</b>
-                                                <input name="ministerio" value="{{old('ministerio')}}" type="text" class="form-control" required>
+                                                <input name="ministerio" value="{{$miembro->ministerio}}" type="text" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Dirección</label><b>*</b>
-                                                <input name="direccion" value="{{old('direccion')}}" type="text" class="form-control" required>
+                                                <input name="direccion" value="{{$miembro->direccion}}" type="text" class="form-control" required>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col 3">
-                                    <div class="form-group">
+                                    <div align="center" class="form-group">
                                         <label for="">Fotografía</label>
                                         <input name="fotografia" type="file" id="file" class="form-control">
                                         <br>
-                                        <output id="list" style="text-align:center; border:1ch"></outout>
+                                        <output id="list" style="text-align:center; border:1ch">
+                                            @if ($miembro->fotografia == "" || $miembro->fotografia == "nophoto.jpg")
+                                                @if ($miembro->genero == "MASCULINO")
+                                                    <img width="120px" name="fotografia"
+                                                    src="{{ url('images/avatar_hombre.png') }}">
+                                                @else
+                                                    <img width="120px" name="fotografia"
+                                                    src="{{ url('images/avatar_mujer.png') }}">
+                                                @endif
+                                            @else
+                                                <img width="120px" name="fotografia"
+                                                src="{{ asset('storage') . '/' . $miembro->fotografia }}">
+                                            @endif
+                                        </outout>
                                         <script>
                                             function archivo(evt){
                                                 var files = evt.target.files;
@@ -118,7 +139,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button class="btn btn-success">Gaurdar Registro</button>
+                                    <button class="btn btn-success">Actualizar Registro</button>
                                     <a href="{{route('miembros.index')}}" class="btn btn-info">Cancelar</a>
                                 </div>
                             </div>
