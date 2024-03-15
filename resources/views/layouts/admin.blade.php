@@ -25,6 +25,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('/plugins/jquery/jquery.js') }}"></script>
     <!-- SWEET ALERT 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -220,7 +223,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <li class="nav-item ">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas"><i class="bi bi-file-person-fill"></i></i>
+              <i class="nav-icon fas"><i class="bi bi-building"></i></i>
               <p>
                 Ministerios
                 <i class="right fas fa-angle-left"></i>
@@ -323,12 +326,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         "pageLength" :10,
         "language": {
             "emptyTable": "No hay informacion",
-            "info": "Mostrando _START_ a _END_ de _TOTAL_ Miembros",
-            "infoEmpty": "Mostrando 0 a 0 de 0 Miembros",
-            "infoFiltered": "(Filtrado de _MAX_ total Miembros)",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ Items",
+            "infoEmpty": "Mostrando 0 a 0 de 0 Items",
+            "infoFiltered": "(Filtrado de _MAX_ total Items)",
             "infoPostFix": "",
             "thousands": ",",
-            "lengthMenu": "Mostrar _MENU_ Miembros",
+            "lengthMenu": "Mostrar _MENU_ Items",
             "loadingRecords": "Cargando...",
             "processing": "Procesando...",
             "search": "Buscador",

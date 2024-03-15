@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MiembroController;
+use App\Http\Controllers\MinisterioController;
 
 Route::get('/', function () { return view('index'); })->middleware('auth');
 // desabilitar Auth::routes();
@@ -16,6 +17,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(
 // con esta linea de codigo creamos todas las rutas de un control - crud
 
 Route::resource('/miembros', MiembroController::class);
+Route::resource('/ministerios', MinisterioController::class);
+
 
 //Route::get('/miembros', [MiembroController::class, 'index'])->name('home')->middleware('auth');
 //Route::get('/miembros/create', [MiembroController::class, 'create'])->middleware('auth');

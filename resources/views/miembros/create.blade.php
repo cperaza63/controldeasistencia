@@ -58,8 +58,12 @@
                                             <div class="form-group">
                                                 <label for="">Género</label><b>*</b>
                                                 <select class="form-control" name="genero" id="genero">
-                                                    <option value="MASCULINO">MASCULINO</option>
-                                                    <option value="FEMENINO">FEMENINO</option>
+
+                                                    <option value ="MASCULINO"
+                                                    {{ old('genero') == "MASCULINO" ? 'selected': '' }}>MASCULINO</option>
+
+                                                    <option value ="FEMENINO"
+                                                    {{ old('genero') == "FEMENINO" ? 'selected': '' }}>FEMENINO</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -118,7 +122,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button class="btn btn-success">Gaurdar Registro</button>
+                                    <button class="btn btn-success">Guardar Registro</button>
                                     <a href="{{route('miembros.index')}}" class="btn btn-info">Cancelar</a>
                                 </div>
                             </div>

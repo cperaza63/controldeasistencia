@@ -50,13 +50,10 @@
                                         <div class="form-group">
                                             <label for="">Género</label>
                                             <select name="genero" id="genero" class="form-control" disabled>
-                                                @if ($miembro->genero == "MASCULINO")
-                                                <option value="MASCULINO">MASCULINO</option>
-                                                <option value="FEMENINO">FEMENINO</option>
-                                                @else
-                                                <option value="FEMENINO">FEMENINO</option>
-                                                <option value="MASCULINO">MASCULINO</option>
-                                                @endif
+                                                <option value ="MASCULINO"
+                                                    {{ $miembro->genero == "MASCULINO" ? 'selected': '' }}>MASCULINO</option>
+                                                    <option value ="FEMENINO"
+                                                    {{ $miembro->genero == "FEMENINO" ? 'selected': '' }}>FEMENINO</option>
                                             </select>
                                         </div>
                                     </div>
