@@ -75,7 +75,7 @@ class MinisterioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Ministerio $ministerio)
+    public function update(Request $request, $id)
     {
         //$datos = request()->all();
         //return response()->json($datos);
@@ -86,7 +86,7 @@ class MinisterioController extends Controller
         'fecha_ingreso' => 'required'
        ]);
 
-       $ministerio= new ministerio();
+       $ministerio = Ministerio::findOrFail($id);
 
        $ministerio->nombre_ministerio = $request->nombre_ministerio;
        $ministerio->descripcion = $request->descripcion;

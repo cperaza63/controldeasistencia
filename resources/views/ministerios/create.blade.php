@@ -64,7 +64,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <button class="btn btn-success">Guardar Registro</button>
-                                    <a href="{{route('miembros.index')}}" class="btn btn-info">Cancelar</a>
+                                    <a href="{{route('ministerios.index')}}" class="btn btn-info">Cancelar</a>
                                 </div>
                             </div>
                         </form>

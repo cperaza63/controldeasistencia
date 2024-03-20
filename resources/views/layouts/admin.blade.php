@@ -198,6 +198,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
             menu-open
             -->
 
+            <li class="nav-item ">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas"><i class="bi bi-people"></i></i>
+                  <p>
+                    Usuarios
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ url('usuarios/create') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Nuevo Usuario</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ url('usuarios') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Listado de Usuarios</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
 
           <li class="nav-item ">
             <a href="#" class="nav-link active">
