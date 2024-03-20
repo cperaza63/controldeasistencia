@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MiembroController;
 use App\Http\Controllers\MinisterioController;
 use App\Http\Controllers\AsistenciaController;
+use App\Http\Controllers\PDFController;
 
 // desabilitar Auth::routes();
 Auth::routes(['register'=>true]);
@@ -15,7 +16,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(
 Route::get('/asistencias/reportes', [AsistenciaController::class, 'reportes'])->name('asistencia.reportes')->middleware('auth');
 Route::get('/asistencias/pdf', [AsistenciaController::class, 'pdf'])->name('asistencia.pdf')->middleware('auth');
 
-
+Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
 Route::resource('/miembros', MiembroController::class)->middleware('auth');
 Route::resource('/ministerios', MinisterioController::class)->middleware('auth');
 Route::resource('/usuarios', UserController::class)->middleware('auth');

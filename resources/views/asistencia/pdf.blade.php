@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Reporte de Asistencias</h1>
-    <div class="col-sm-6">
+    <div class="col-sm-12">
         <table id="example1" class="table table-bordered table-striped table-sm"">
             <thead class="thead">
                 <tr>
