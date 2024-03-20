@@ -15,6 +15,7 @@ Route::get('/', [AdminController::class, 'index'])->middleware('auth');
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('/asistencias/reportes', [AsistenciaController::class, 'reportes'])->name('asistencia.reportes')->middleware('auth');
 Route::get('/asistencias/pdf', [AsistenciaController::class, 'pdf'])->name('asistencia.pdf')->middleware('auth');
+Route::get('/asistencias/pdf_fechas', [AsistenciaController::class, 'pdf_fechas'])->name('asistencia.pdf_reportes')->middleware('auth');
 
 Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
 Route::resource('/miembros', MiembroController::class)->middleware('auth');

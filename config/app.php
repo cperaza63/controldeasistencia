@@ -156,6 +156,11 @@ return [
     */
     'providers' => [
         // ...
+        Spatie\Permission\PermissionServiceProvider::class,
+    ],
+
+    'providers' => [
+        // ...
         Barryvdh\DomPDF\ServiceProvider::class,
     ],
 

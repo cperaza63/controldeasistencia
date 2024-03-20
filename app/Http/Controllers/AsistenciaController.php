@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Asistencia;
 use App\Models\Miembro;
+use Illuminate\Http\Request;
 use App\Http\Requests\AsistenciaRequest;
 use PDF;
 
@@ -40,6 +41,22 @@ class AsistenciaController extends Controller
         $pdf = PDF::loadView('asistencia.pdf', compact('asistencias','miembros'));
         // DOWNLOAD POR stream
         return $pdf->stream('asistencia.pdf');
+    }
+
+    public function pdf_fechas(Request $request){
+        //$fechas = request()->all();
+        //return response()->json($fechas);
+
+        $fi =  $request->fi;
+        $ff =  $request->ff;
+
+        $asistencias = Asistencia::
+        where('fecha', '>=', $fi)
+        ->where('fecha', '<=', $ff)
+        ->get();
+        //return view('asistencia.pdf_fechas',  ['asistencias'=>$asistencias, 'fi'=>$fi, 'ff'=>$ff]);
+        $pdf = PDF::loadView('asistencia.pdf_fechas', ['asistencias'=>$asistencias, 'fi'=>$fi, 'ff'=>$ff]);
+        return $pdf->stream('asistencia.pdf_fechas');
     }
 
     /**
