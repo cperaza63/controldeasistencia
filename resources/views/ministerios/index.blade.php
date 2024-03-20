@@ -32,7 +32,7 @@
                 <div class="card card-outline card-info">
                     <div class="card-header">
                         <div class="card-tools">
-                            <a href="{{ url('/ministerios/create')}}" class="btn btn-primary"><i class="bi bi-file-plus"></i>
+                            <a href="{{ url('/ministerios/create')}}" class="btn btn-info"><i class="bi bi-file-plus"></i>
                                 Agregar nuevo ministerio
                             </a>
                         </div>

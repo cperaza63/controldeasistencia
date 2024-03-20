@@ -32,7 +32,7 @@
                 <div class="card card-outline card-info">
                     <div class="card-header">
                         <div class="card-tools">
-                            <a href="{{ url('/miembros/create')}}" class="btn btn-primary"><i class="bi bi-file-plus"></i>
+                            <a href="{{ url('/miembros/create')}}" class="btn btn-info"><i class="bi bi-file-plus"></i>
                                 Agregar nuevo miembro
                             </a>
                         </div>
@@ -87,7 +87,7 @@
                                                     @method('DELETE')
 
                                                     <button type="submit"
-                                                    onclick="return confirm('Estas seguro de eliminar registro?')"class="btn btn-outline-danger">
+                                                    onclick="return confirm('Estas seguro de eliminar registro?')" class="btn btn-outline-danger">
                                                     <i class="bi bi-trash"></i></button>
                                                 </form>
 

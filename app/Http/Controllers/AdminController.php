@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Miembro;
 use App\Models\Ministerio;
+use App\Models\Asistencia;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -16,17 +17,20 @@ class AdminController extends Controller
         $cuantosMinisterios=0;
         $cuantosMiembros =0;
         $cuantosUsuarios =0;
+        $cuantasAsistencias =0;
 
         $cuantosMinisterios = Ministerio::count();
         $cuantosMiembros = Miembro::count();
         $cuantosUsuarios = User::count();
+        $cuantasAsistencias = Asistencia::count();
 
        //return response()->json($cuantosMinisterios);
 
         return view('index', [
             'cuantosMinisterios' => $cuantosMinisterios,
             'cuantosMiembros' => $cuantosMiembros,
-            'cuantosUsuarios' => $cuantosUsuarios]
+            'cuantosUsuarios' => $cuantosUsuarios,
+            'cuantasAsistencias' => $cuantasAsistencias,]
         );
     }
 

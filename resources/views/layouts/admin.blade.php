@@ -270,6 +270,54 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
 
+          <li class="nav-item ">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas"><i class="bi bi-calendar2-week"></i></i>
+              <p>
+                Asistencias
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('asistencias/create') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Nueva Asistencia</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('asistencias') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de Asistencias</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item ">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas"><i class="bi bi-printer"></i></i>
+              <p>
+                Reportes
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('asistencias/reportes') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Reporte de Asistencias</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('asistencias') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Reporte de Miembros</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="nav-item">
             <a style="background-color:rgb(88, 7, 7)" class="nav-link" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
