@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Asistencia;
 use App\Models\Miembro;
 use App\Http\Requests\AsistenciaRequest;
-use Barryvdh\DomPDF\Facade\Pdf;
 
 use function Laravel\Prompts\select;
 
@@ -35,10 +34,8 @@ class AsistenciaController extends Controller
     public function pdf(){
         $asistencias = Asistencia::all();
         // DOMpdf
-        $pdf = Pdf::loadView('asistencia.pdf', $asistencias);
-        return $pdf->stream();
-        //$miembros = Miembro::pluck('nombre_apellido','id');
-        //return view('asistencia.pdf', compact('asistencias','miembros'));
+        $miembros = Miembro::pluck('nombre_apellido','id');
+        return view('asistencia.pdf', compact('asistencias','miembros'));
     }
 
     /**
