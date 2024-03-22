@@ -16,6 +16,13 @@ use function Laravel\Prompts\select;
  */
 class AsistenciaController extends Controller
 {
+    public function __construct(){
+
+        $this->middleware('can:asistencias.index')->only('index');
+        $this->middleware('can:asistencias.create')->only('create', 'store');
+        $this->middleware('can:asistencias.edit')->only('edit', 'update');
+        $this->middleware('can:asistencias.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      */

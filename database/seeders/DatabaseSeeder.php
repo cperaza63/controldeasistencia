@@ -4,6 +4,12 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Str;
+use App\Models\Miembro;
+use App\Models\User;
+use App\Models\Ministerio;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,10 +18,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([
-            MiembroSeeder::class,
-        ]);
-
+        $this->call([RoleSeeder::class]);
+        $this->call([MiembroSeeder::class]);
+        $this->call([MinisterioSeeder::class]);
+        $this->call([UserSeeder::class]);
 
     }
 }

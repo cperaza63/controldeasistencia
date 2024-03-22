@@ -197,7 +197,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library
             menu-open
             -->
-
+            @can("usuarios.index")
             <li class="nav-item ">
                 <a href="#" class="nav-link active">
                   <i class="nav-icon fas"><i class="bi bi-people"></i></i>
@@ -207,12 +207,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
+                  @can("usuarios.create")
                   <li class="nav-item">
                     <a href="{{ url('usuarios/create') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Nuevo Usuario</p>
                     </a>
                   </li>
+                  @endcan
                   <li class="nav-item">
                     <a href="{{ url('usuarios') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
@@ -221,7 +223,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </li>
                 </ul>
               </li>
+            @endcan
 
+        @can("ministerios.index")
           <li class="nav-item ">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas"><i class="bi bi-building"></i></i>
@@ -231,12 +235,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
             <ul class="nav nav-treeview">
+            @can("ministerios.create")
               <li class="nav-item">
                 <a href="{{ url('ministerios/create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nuevo Ministerio</p>
                 </a>
               </li>
+            @endcan
               <li class="nav-item">
                 <a href="{{ url('ministerios') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -245,7 +251,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
+        @endcan
 
+        @can("miembros.index")
           <li class="nav-item ">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas"><i class="bi bi-file-person-fill"></i></i>
@@ -255,12 +263,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
             <ul class="nav nav-treeview">
+            @can("miembros.index")
               <li class="nav-item">
                 <a href="{{ url('miembros/create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nuevo Miembro</p>
                 </a>
               </li>
+            @endcan
               <li class="nav-item">
                 <a href="{{ url('miembros') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -269,7 +279,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
+        @endcan
 
+        @can("asistencias.index")
           <li class="nav-item ">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas"><i class="bi bi-calendar2-week"></i></i>
@@ -279,12 +291,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
             <ul class="nav nav-treeview">
+            @can("miembros.index")
               <li class="nav-item">
                 <a href="{{ url('asistencias/create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nueva Asistencia</p>
                 </a>
               </li>
+              @endcan
               <li class="nav-item">
                 <a href="{{ url('asistencias') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -293,6 +307,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
+        @endcan
 
           <li class="nav-item ">
             <a href="#" class="nav-link active">

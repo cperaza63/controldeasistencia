@@ -23,6 +23,12 @@
         </div>
         @endforeach
 
+        @if (session('info'))
+            <div class="alert alert-success">
+                <strong>{{ session('info') }}</strong>
+            </div>
+        @endif
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="card card-outline card-success">
@@ -81,6 +87,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <button class="btn btn-success">Guardar Registro</button>
+                                    <a href="{{ route('usuarios.roles', $usuario->id) }}" class="btn btn-warning"><i class="bi bi-pencil"></i>Roles</a>
                                     <a href="{{route('usuarios.index')}}" class="btn btn-info">Cancelar</a>
                                 </div>
                             </div>

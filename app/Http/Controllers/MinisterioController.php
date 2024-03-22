@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\DB;
 
 class MinisterioController extends Controller
 {
+    public function __construct(){
+        $this->middleware('can:ministerios.index')->only('index');
+        $this->middleware('can:ministerios.create')->only('create', 'store');
+        $this->middleware('can:ministerios.edit')->only('edit', 'update');
+        $this->middleware('can:ministerios.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      */

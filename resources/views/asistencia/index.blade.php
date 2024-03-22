@@ -27,12 +27,13 @@
                             <span id="card_title">
 
                             </span>
-
+                            @can("asistencias.create")
                              <div class="float-right">
                                 <a href="{{ route('asistencias.create') }}" class="btn btn-info btn-sm float-right"  data-placement="left">
                                   {{ __('Crear Nueva Asistencia') }}
                                 </a>
                               </div>
+                            @endcan
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -65,10 +66,14 @@
                                             <td>
                                                 <form action="{{ route('asistencias.destroy',$asistencia->id) }}" method="POST">
                                                     <a class="btn btn-outline-primary" href="{{ route('asistencias.show',$asistencia->id) }}"><i class="bi bi-eye"></i></i> </a>
+                                                @can("asistencias.edit")
                                                     <a class="btn btn-outline-success" href="{{ route('asistencias.edit',$asistencia->id) }}"><i class="bi bi-pencil"></i> </a>
-                                                    @csrf
-                                                    @method('DELETE')
+                                                @endcan
+                                                @csrf
+                                                @method('DELETE')
+                                                    @can("asistencias.edit")
                                                     <button onclick="return confirm('Estas seguro de eliminar registro?')" type="submit" class="btn btn-outline-danger"><i class="bi bi-trash"></i> </button>
+                                                @endcan
                                                 </form>
                                             </td>
                                         </tr>

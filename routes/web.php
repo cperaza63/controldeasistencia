@@ -16,12 +16,21 @@ Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware(
 Route::get('/asistencias/reportes', [AsistenciaController::class, 'reportes'])->name('asistencia.reportes')->middleware('auth');
 Route::get('/asistencias/pdf', [AsistenciaController::class, 'pdf'])->name('asistencia.pdf')->middleware('auth');
 Route::get('/asistencias/pdf_fechas', [AsistenciaController::class, 'pdf_fechas'])->name('asistencia.pdf_reportes')->middleware('auth');
+Route::get('/usuarios/roles', [UserController::class, 'roles'])->name('usuarios.roles')->middleware('auth');
+Route::get('/usuarios/{id}/roles', [UserController::class, 'roles'])->name('usuarios.roles')->middleware('auth');
+Route::put('/usuarios/update_roles/{id}', [UserController::class, 'update_roles'])->name('usuarios.update_roles')->middleware('auth');
 
-Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
+//Route::get('/generate-pdf', [PDFController::class, 'generatePDF']);
 Route::resource('/miembros', MiembroController::class)->middleware('auth');
 Route::resource('/ministerios', MinisterioController::class)->middleware('auth');
 Route::resource('/usuarios', UserController::class)->middleware('auth');
 Route::resource('/asistencias', AsistenciaController::class)->middleware('auth');
+
+//
+// ONLY)
+//
+//Route::resource('/asistencias', AsistenciaController::class)->only(['index','edit','update'])->middleware('auth');
+//
 
 //Route::get('/', function () { return view('index'); })->middleware('auth');
 //Route::get('/miembros', function(){ return view('miembros.index'); })->middleware('auth');

@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\DB;
 
 class MiembroController extends Controller
 {
+    public function __construct(){
+        $this->middleware('can:miembros.index')->only('index');
+        $this->middleware('can:miembros.create')->only('create', 'store');
+        $this->middleware('can:miembros.edit')->only('edit', 'update');
+        $this->middleware('can:miembros.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      */
