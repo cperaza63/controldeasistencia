@@ -27,7 +27,11 @@
             <div class="icon">
                 <i class="bi bi-building-check"></i>
             </div>
+            @can('ministerios.index')
             <a href="{{url('ministerios')}}" class="small-box-footer">Más info... <i class="fas fa-arrow-circle-right"></i></a>
+            @else
+            <a href="#" class="small-box-footer">Más info... <i class="fas fa-arrow-circle-right"></i></a>
+            @endcan
             </div>
         </div>
         <!-- ./col -->
@@ -42,8 +46,13 @@
             <div class="icon">
                 <i class="bi bi-person-check"></i>
             </div>
+            @can('miembros.index')
             <a href="{{url('miembros')}}" class="small-box-footer"
             >Más info... <i class="fas fa-arrow-circle-right"></i></a>
+            @else
+            <a href="#" class="small-box-footer"
+            >Más info... <i class="fas fa-arrow-circle-right"></i></a>
+            @endcan
             </div>
         </div>
         <!-- ./col -->
@@ -58,7 +67,11 @@
             <div class="icon">
                 <i class="bi bi-people"></i>
             </div>
+            @can('usuarios.index')
             <a href="{{url('usuarios')}}" class="small-box-footer">Más info... <i class="fas fa-arrow-circle-right"></i></a>
+            @else
+            <a href="#" class="small-box-footer">Más info... <i class="fas fa-arrow-circle-right"></i></a>
+            @endcan
             </div>
         </div>
         <!-- ./col -->
@@ -73,7 +86,11 @@
             <div class="icon">
                 <i class="bi bi-calendar2-week"></i>
             </div>
+            @can('asistencias.index')
             <a href="{{url('asistencias')}}" class="small-box-footer">Más info... <i class="fas fa-arrow-circle-right"></i></a>
+            @else
+            <a href="#" class="small-box-footer">Más info... <i class="fas fa-arrow-circle-right"></i></a>
+            @endcan
             </div>
         </div>
         <!-- ./col -->
